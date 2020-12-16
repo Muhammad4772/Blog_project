@@ -1,0 +1,41 @@
+
+  <div class="row">
+   <div class="col-lg-8 mb-4 contact-left">
+     <h3>Blog</h3>
+       <%= form_with(model: blog, local: true) do |form| %>
+         <div class="control-group form-group">
+            <div class="controls">
+             <span class="thicker"> <%= form.label :Tittle %></span>
+               <%= form.text_field :Tittle , class: "form-control"%>
+               <p class="help-block"></p>
+            </div>
+         </div>
+         <div class="control-group form-group">
+            <div class="controls"> 
+             <% if @blog.image.attached? %>
+              <%= image_tag main_app.url_for(@blog.image),size: "50x50" %>
+              <% end %>        
+              <span class="thicker"><%= form.label :image %></span>
+               <%= form.file_field :image ,class: "form-control"  %>
+            </div>
+         </div>
+         <div class="control-group form-group">
+            <div class="controls">
+              <span class="thicker"><%= form.label :Publisher %></span>
+               <%= form.text_field :Publisher,class: "form-control" %>
+            </div>
+         </div>
+         <div class="control-group form-group">
+            <div class="controls">
+            <span class="thicker"><%= form.label :Discription %></span>
+             <%= form.text_area :Discription,class: "form-control" %>       
+            </div>
+         </div>
+         <div id="success"></div>
+         <!-- For success/fail messages -->
+         <button type="submit" class="btn btn-primary" id="sendMessageButton">Create Blog</button> 
+         <!-- </form> -->   
+         <% end %>
+     </div>
+   </div>
+ </div>
