@@ -1,0 +1,13 @@
+
+<div class="media mb-4" id="comment_<%= comment.id %>">
+    <img class="d-flex mr-3 rounded-circle" src="images/testi_01.png" alt="">
+    <div class="media-body">
+      <%#= render 'comments/comment', comment: comment %>
+        <h5 class="mt-0"><%=comment.name %></h5>
+       <p class="card-header"><%=comment.description %></p>
+      <%= link_to 'Edit', edit_blog_comment_path(comment.blog, comment), remote: true, class: "card-header"%>
+      <%= link_to 'Destroy', blog_comment_path(comment.blog, comment), method: :delete, data: { confirm: 'Are you sure?', remote:true}, class: "card-header"%>
+    </div>
+  </div>
+
+

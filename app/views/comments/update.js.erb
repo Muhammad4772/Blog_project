@@ -1,0 +1,4 @@
+
+$("#comment_pane").prepend("<%= j render @comment %>");
+$("#edit_comment_<%= @comment.id %>").replaceWith("<%= j render 'form', comment: @comment %>");
+$('#edit_comment_<%= @comment.id %>').replaceWith("");

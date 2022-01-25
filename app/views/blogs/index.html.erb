@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+<!-- full Title -->
+<div class="full-title">
+  <div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">All Blogs
+      <small>VHC</small>
+    </h1>
+  </div>
+</div>
+<!-- Page Content -->
+<div class="container">
+  <div class="breadcrumb-main">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <%= link_to 'Home', home_path, class: "breadcrumb-item" %>
+      </li>
+      <li class="breadcrumb-item active">Blogs</li>
+    </ol>
+  </div>
+  <% @blogs.each do |blog| %>
+  <div class="blog-entries">
+    <!-- Blog Post -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <% if blog.image.attached? %>
+            <%= image_tag main_app.url_for(blog.image),size: "300x300" %>
+            <% else %>
+            <%= image_tag("No-image.jpg")%>
+            <% end %>
+          </div>
+          <div class="col-lg-6">
+            <h2 class="card-title"><%= blog.Tittle %></h2>
+            <p class="card-text"><%= blog.Discription %></p>
+            <%= link_to "Read More", blog, :class => "btn btn-primary" %>
+            <%= link_to 'Destroy', blog_path(blog), method: :delete, data: {confirm: 'Are you sure?' }, :class => "btn btn-primary"%>
+            <%= link_to 'Edit', edit_blog_path(blog), :class => "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <%= blog.created_at.strftime("%d %b. %Y") %>
+        <span class="text-check"><%= blog.Publisher%></span>  
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="pagination_bar_arrow">
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+      <li class="page-item">
+        <%= paginate @blogs %>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+  <!-- /.container -->

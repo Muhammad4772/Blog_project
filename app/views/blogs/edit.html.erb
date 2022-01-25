@@ -1,0 +1,19 @@
+	<div class="full-title">
+		<div class="container">
+			<!-- Page Heading/Breadcrumbs -->
+			<h1 class="mt-4 mb-3">Contact
+				<small>Subheading</small>
+			</h1>
+		</div>
+	</div>
+    <!-- Page Content -->
+    <div class="container">
+		<div class="breadcrumb-main">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<%= link_to 'Home', home_path, class: "breadcrumb-item" %>
+				</li>
+				<li class="breadcrumb-item active">Edit</li>
+			</ol>
+		</div>
+    <%= render 'form', blog: @blog %>
